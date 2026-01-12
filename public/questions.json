@@ -1,0 +1,602 @@
+[
+  {
+    "isMulti": false,
+    "title": "Vue 3 中 Composition API 相比 Options API 的最大优势是？",
+    "options": [
+      { "key": "A", "text": "性能更高" },
+      { "key": "B", "text": "更好的逻辑复用和代码组织能力" },
+      { "key": "C", "text": "更少的内存占用" },
+      { "key": "D", "text": "自动支持异步组件" }
+    ],
+    "correct": "B",
+    "explanation": "Composition API 最大优势在于逻辑关注点分离和复用（composables），而非性能。"
+  },
+  {
+    "isMulti": false,
+    "title": "在 <script setup> 中直接使用 await，会导致什么效果？",
+    "options": [
+      { "key": "A", "text": "报错，不支持顶级 await" },
+      { "key": "B", "text": "组件变为异步组件，渲染挂起直到 await 完成" },
+      { "key": "C", "text": "仅阻塞当前函数，不会影响渲染" },
+      { "key": "D", "text": "只在开发环境生效" }
+    ],
+    "correct": "B",
+    "explanation": "Vue 3.4+ 支持 <script setup> 顶级 await，会自动将组件包装为异步组件。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 中 ref 和 reactive 的本质区别是？",
+    "options": [
+      { "key": "A", "text": "ref 用于基本类型，reactive 用于对象" },
+      { "key": "B", "text": "ref 返回 .value，reactive 直接返回 Proxy 对象" },
+      { "key": "C", "text": "ref 不能嵌套对象" },
+      { "key": "D", "text": "ref 性能差" }
+    ],
+    "correct": "B",
+    "explanation": "ref 本质也是 Proxy，但对基本类型做了 .value 包装。"
+  },
+  {
+    "isMulti": false,
+    "title": "以下哪种方式无法触发 Vue 3 数组响应式更新？",
+    "options": [
+      { "key": "A", "text": "arr.push(item)" },
+      { "key": "B", "text": "arr.length = 0" },
+      { "key": "C", "text": "arr[5] = 'new'" },
+      { "key": "D", "text": "arr.splice(0, 1)" }
+    ],
+    "correct": "C",
+    "explanation": "Vue 3 依然无法检测到通过索引直接修改数组，必须使用变异方法或 .value[index]。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 中获取当前组件实例的正确方式是？",
+    "options": [
+      { "key": "A", "text": "this" },
+      { "key": "B", "text": "getCurrentInstance()" },
+      { "key": "C", "text": "useInstance()" },
+      { "key": "D", "text": "instance()" }
+    ],
+    "correct": "B",
+    "explanation": "Composition API 中 this 为 undefined，必须使用 getCurrentInstance()（不推荐滥用）。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 官方当前推荐的状态管理库是？",
+    "options": [
+      { "key": "A", "text": "Vuex" },
+      { "key": "B", "text": "Pinia" },
+      { "key": "C", "text": "Redux" },
+      { "key": "D", "text": "MobX" }
+    ],
+    "correct": "B",
+    "explanation": "Pinia 已正式成为 Vue 官方推荐的状态管理库。"
+  },
+  {
+    "isMulti": false,
+    "title": "Pinia 中可以直接修改 state，而不需要 mutations，这是因为？",
+    "options": [
+      { "key": "A", "text": "Pinia 内部自动做了 mutation 包装" },
+      { "key": "B", "text": "Pinia 设计上就允许直接修改" },
+      { "key": "C", "text": "只有 dev 模式才允许" },
+      { "key": "D", "text": "需要开启 strict 模式" }
+    ],
+    "correct": "B",
+    "explanation": "Pinia 从设计上就抛弃了 mutations，允许直接修改 state。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 中 v-model 在自定义组件上默认对应的 prop 和 event 分别是？",
+    "options": [
+      { "key": "A", "text": "value 和 input" },
+      { "key": "B", "text": "modelValue 和 update:modelValue" },
+      { "key": "C", "text": "val 和 change" },
+      { "key": "D", "text": "data 和 update" }
+    ],
+    "correct": "B",
+    "explanation": "Vue 3 改为 modelValue 和 update:modelValue。"
+  },
+  {
+    "isMulti": false,
+    "title": "<teleport to='body'> 的主要作用是？",
+    "options": [
+      { "key": "A", "text": "提升组件性能" },
+      { "key": "B", "text": "将内容渲染到 DOM 的任意位置（如 body）" },
+      { "key": "C", "text": "实现组件复用" },
+      { "key": "D", "text": "实现全局状态管理" }
+    ],
+    "correct": "B",
+    "explanation": "Teleport 常用于 Modal、Toast 等需要脱离层级的组件。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 的 Fragment 特性意味着一个组件可以有？",
+    "options": [
+      { "key": "A", "text": "多个根节点" },
+      { "key": "B", "text": "只能有一个根节点" },
+      { "key": "C", "text": "必须有根节点" },
+      { "key": "D", "text": "不能使用 template" }
+    ],
+    "correct": "A",
+    "explanation": "Vue 3 支持多个根节点（Fragment）。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 中 computed 的返回值必须？",
+    "options": [
+      { "key": "A", "text": "是一个 ref 对象" },
+      { "key": "B", "text": "手动调用 .value 才能获取值" },
+      { "key": "C", "text": "直接返回计算结果即可" },
+      { "key": "D", "text": "必须使用 async" }
+    ],
+    "correct": "C",
+    "explanation": "computed 直接返回计算值，使用时自动解包（模板中）。"
+  },
+  {
+    "isMulti": false,
+    "title": "watch 和 watchEffect 的主要区别是？",
+    "options": [
+      { "key": "A", "text": "watch 需要明确依赖，watchEffect 立即执行并自动收集依赖" },
+      { "key": "B", "text": "watch 性能更好" },
+      { "key": "C", "text": "watchEffect 不支持回调函数" },
+      { "key": "D", "text": "两者完全一样" }
+    ],
+    "correct": "A",
+    "explanation": "watch 懒执行，watchEffect 立即执行并自动追踪依赖。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 的响应式原理基于？",
+    "options": [
+      { "key": "A", "text": "Object.defineProperty" },
+      { "key": "B", "text": "Proxy" },
+      { "key": "C", "text": "Virtual DOM" },
+      { "key": "D", "text": "diff 算法" }
+    ],
+    "correct": "B",
+    "explanation": "Vue 3 使用 Proxy 实现响应式，支持动态添加删除属性。"
+  },
+  {
+    "isMulti": false,
+    "title": "在 Vue 3 中，shallowRef 的特点是？",
+    "options": [
+      { "key": "A", "text": "只对 .value 的赋值做响应式，内部对象变更不触发更新" },
+      { "key": "B", "text": "完全不响应式" },
+      { "key": "C", "text": "性能比 ref 差" },
+      { "key": "D", "text": "只能用于基本类型" }
+    ],
+    "correct": "A",
+    "explanation": "shallowRef 常用于性能优化，只监听 .value 的重新赋值。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 中 provide/inject 默认是否支持响应式？",
+    "options": [
+      { "key": "A", "text": "默认支持" },
+      { "key": "B", "text": "默认不支持，必须包装为 ref 或 reactive" },
+      { "key": "C", "text": "只支持 ref" },
+      { "key": "D", "text": "完全不支持响应式" }
+    ],
+    "correct": "B",
+    "explanation": "provide 普通值是非响应式的，需主动包装为 ref/reactive。"
+  },
+  {
+    "isMulti": false,
+    "title": "以下哪个钩子在服务端渲染（SSR）时只会执行一次？",
+    "options": [
+      { "key": "A", "text": "onMounted" },
+      { "key": "B", "text": "onBeforeMount" },
+      { "key": "C", "text": "onServerPrefetch" },
+      { "key": "D", "text": "onUpdated" }
+    ],
+    "correct": "C",
+    "explanation": "onServerPrefetch 只在服务端执行一次，用于服务端数据预取。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue Router 4 中路由守卫 beforeEach 的返回值中，false 表示？",
+    "options": [
+      { "key": "A", "text": "取消导航" },
+      { "key": "B", "text": "继续导航" },
+      { "key": "C", "text": "刷新页面" },
+      { "key": "D", "text": "无意义" }
+    ],
+    "correct": "A",
+    "explanation": "返回 false 会取消当前导航。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 中 defineProps 的类型声明方式有几种？",
+    "options": [
+      { "key": "A", "text": "1种" },
+      { "key": "B", "text": "2种（运行时声明 + 类型声明）" },
+      { "key": "C", "text": "3种" },
+      { "key": "D", "text": "不支持类型声明" }
+    ],
+    "correct": "B",
+    "explanation": "支持运行时 props: [...] 和类型方式 defineProps<{ name: string }>()。"
+  },
+  {
+    "isMulti": false,
+    "title": "在 <script setup> 中使用 defineEmits 时，返回值是什么？",
+    "options": [
+      { "key": "A", "text": "一个事件发射函数" },
+      { "key": "B", "text": "null" },
+      { "key": "C", "text": "组件实例" },
+      { "key": "D", "text": "undefined" }
+    ],
+    "correct": "A",
+    "explanation": "<script setup> 中 defineEmits() 会返回一个发射函数，如 emit('update')。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 的 Suspense 默认等待什么条件才渲染 fallback 之外的内容？",
+    "options": [
+      { "key": "A", "text": "所有异步组件加载完成" },
+      { "key": "B", "text": "所有 setup 中的 await 完成" },
+      { "key": "C", "text": "A 和 B 都正确" },
+      { "key": "D", "text": "仅等待 defineAsyncComponent" }
+    ],
+    "correct": "C",
+    "explanation": "Suspense 能捕获异步组件和 <script setup> 顶级 await。"
+  },
+  {
+    "isMulti": true,
+    "title": "以下哪些方式可以触发组件强制更新？（多选）",
+    "options": [
+      { "key": "A", "text": "this.$forceUpdate()" },
+      { "key": "B", "text": "nextTick(() => {})" },
+      { "key": "C", "text": "修改 key 值" },
+      { "key": "D", "text": "使用 markRaw 标记的对象修改" }
+    ],
+    "correct": "AC",
+    "explanation": "Options API 中可用 $forceUpdate()，Composition API 中通常改 key 强制刷新。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 中 markRaw 的作用是？",
+    "options": [
+      { "key": "A", "text": "标记对象永远不会被转为响应式" },
+      { "key": "B", "text": "标记对象为浅响应式" },
+      { "key": "C", "text": "提升性能" },
+      { "key": "D", "text": "冻结对象" }
+    ],
+    "correct": "A",
+    "explanation": "markRaw 常用于第三方库实例（如 ECharts）避免被 Proxy 包裹。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vite 中 .vue 文件的 <script setup> 会被编译为？",
+    "options": [
+      { "key": "A", "text": "setup() 函数" },
+      { "key": "B", "text": "直接内联到组件对象" },
+      { "key": "C", "text": "生成 render 函数" },
+      { "key": "D", "text": "保持原样" }
+    ],
+    "correct": "B",
+    "explanation": "<script setup> 是编译时语法糖，最终不生成 setup 函数。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 中 toRefs 的作用是？",
+    "options": [
+      { "key": "A", "text": "将 reactive 对象解构为多个 ref，保持响应式" },
+      { "key": "B", "text": "将 ref 转为普通值" },
+      { "key": "C", "text": "浅层解构" },
+      { "key": "D", "text": "冻结对象" }
+    ],
+    "correct": "A",
+    "explanation": "解决 reactive 对象解构后丢失响应式的问题。"
+  },
+  {
+    "isMulti": false,
+    "title": "在 Vue 3 中，模板中直接访问 ref 值时需要加 .value 吗？",
+    "options": [
+      { "key": "A", "text": "需要" },
+      { "key": "B", "text": "不需要，模板中自动解包" },
+      { "key": "C", "text": "仅 setup 中不需要" },
+      { "key": "D", "text": "仅开发环境自动解包" }
+    ],
+    "correct": "B",
+    "explanation": "模板中 ref 会自动解包，JS 中必须 .value。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 的 Tree-shaking 主要得益于？",
+    "options": [
+      { "key": "A", "text": "Composition API 按需导入" },
+      { "key": "B", "text": "Options API" },
+      { "key": "C", "text": "全局 API" },
+      { "key": "D", "text": "Vuex" }
+    ],
+    "correct": "A",
+    "explanation": "如 import { ref, computed } from 'vue' 支持 Tree-shaking。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 中自定义指令的钩子函数中，binding.value 表示？",
+    "options": [
+      { "key": "A", "text": "指令绑定值" },
+      { "key": "B", "text": "指令修饰符" },
+      { "key": "C", "text": "指令参数" },
+      { "key": "D", "text": "元素本身" }
+    ],
+    "correct": "A",
+    "explanation": "如 v-my-directive=\"msg\" 中的 msg。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 中 h() 函数通常用于？",
+    "options": [
+      { "key": "A", "text": "手动编写 render 函数" },
+      { "key": "B", "text": "模板编译" },
+      { "key": "C", "text": "创建组件实例" },
+      { "key": "D", "text": "定义指令" }
+    ],
+    "correct": "A",
+    "explanation": "h() 是 hyperscript，用于 JSX 或 render 函数。"
+  },
+  {
+    "isMulti": false,
+    "title": "以下哪个不是 Vue 3 的全局 API？",
+    "options": [
+      { "key": "A", "text": "createApp" },
+      { "key": "B", "text": "nextTick" },
+      { "key": "C", "text": "ref" },
+      { "key": "D", "text": "Vue.set" }
+    ],
+    "correct": "D",
+    "explanation": "Vue.set 在 Vue 3 中已被移除，不再需要。"
+  },
+  {
+    "isMulti": false,
+    "title": "在 Pinia 中，store 的 setup 写法返回的对象会？",
+    "options": [
+      { "key": "A", "text": "自动变为响应式" },
+      { "key": "B", "text": "需要手动用 reactive 包裹" },
+      { "key": "C", "text": "仅 ref 才响应式" },
+      { "key": "D", "text": "完全不响应式" }
+    ],
+    "correct": "A",
+    "explanation": "Pinia 的 setup store 会自动将返回值转为响应式。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 中 isRef 的作用是？",
+    "options": [
+      { "key": "A", "text": "判断一个值是否为 ref" },
+      { "key": "B", "text": "解包 ref" },
+      { "key": "C", "text": "创建 ref" },
+      { "key": "D", "text": "浅层 ref" }
+    ],
+    "correct": "A",
+    "explanation": "常用于工具函数或插件中判断参数类型。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 中自定义组件的 v-model 可以支持多个吗？",
+    "options": [
+      { "key": "A", "text": "不支持" },
+      { "key": "B", "text": "支持，通过 props 和 update:xxx" },
+      { "key": "C", "text": "最多支持两个" },
+      { "key": "D", "text": "需要使用 .sync" }
+    ],
+    "correct": "B",
+    "explanation": "如 v-model:name、v-model:age，通过定义多个 prop 和 update 事件实现。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 的 <keep-alive> 在 Composition API 中如何动态控制缓存？",
+    "options": [
+      { "key": "A", "text": "通过 include/exclude" },
+      { "key": "B", "text": "通过 <Cacheable>" },
+      { "key": "C", "text": "已废弃" },
+      { "key": "D", "text": "通过 abstract 属性" }
+    ],
+    "correct": "A",
+    "explanation": "仍然使用 include/exclude/max，支持字符串、正则、数组。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 中 shallowReactive 的特点是？",
+    "options": [
+      { "key": "A", "text": "只对最外层属性做响应式，嵌套对象不响应式" },
+      { "key": "B", "text": "完全不响应式" },
+      { "key": "C", "text": "性能比 reactive 差" },
+      { "key": "D", "text": "仅用于数组" }
+    ],
+    "correct": "A",
+    "explanation": "适用于数据层级很深但只关心顶层变化的场景。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 中 defineAsyncComponent 支持哪些高级选项？",
+    "options": [
+      { "key": "A", "text": "loadingComponent、errorComponent、delay、timeout" },
+      { "key": "B", "text": "仅支持 loader 函数" },
+      { "key": "C", "text": "仅支持 timeout" },
+      { "key": "D", "text": "不支持任何选项" }
+    ],
+    "correct": "A",
+    "explanation": "支持加载中、错误、延迟、超时等完整配置。"
+  },
+  {
+    "isMulti": false,
+    "title": "在 Vue 3 + TypeScript 项目中，推荐的 defineComponent 写法是？",
+    "options": [
+      { "key": "A", "text": "必须始终使用 defineComponent" },
+      { "key": "B", "text": "在 <script setup> 中可以省略" },
+      { "key": "C", "text": "已被废弃" },
+      { "key": "D", "text": "仅用于全局组件" }
+    ],
+    "correct": "B",
+    "explanation": "<script setup> 本身就具备完整类型推断，无需 defineComponent。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 中 $refs 的类型在 TypeScript 中如何正确声明？",
+    "options": [
+      { "key": "A", "text": "ref 属性加类型" },
+      { "key": "B", "text": "无法类型推断" },
+      { "key": "C", "text": "使用 any" },
+      { "key": "D", "text": "使用 InstanceType" }
+    ],
+    "correct": "A",
+    "explanation": "<div ref=\"el\" />，然后 const el = ref<HTMLElement>(null)"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 中 onBeforeUnmount 相当于 Vue 2 的哪个生命周期？",
+    "options": [
+      { "key": "A", "text": "beforeDestroy" },
+      { "key": "B", "text": "destroyed" },
+      { "key": "C", "text": "beforeUnmount" },
+      { "key": "D", "text": "unmounted" }
+    ],
+    "correct": "A",
+    "explanation": "Vue 3 改名为 beforeUnmount 和 unmounted。"
+  },
+  {
+    "isMulti": false,
+    "title": "以下哪个工具可以查看 Vue 3 组件的响应式依赖图？",
+    "options": [
+      { "key": "A", "text": "Vue Devtools" },
+      { "key": "B", "text": "Chrome Devtools" },
+      { "key": "C", "text": "Performance 面板" },
+      { "key": "D", "text": "Network 面板" }
+    ],
+    "correct": "A",
+    "explanation": "Vue Devtools 6+ 支持查看响应式依赖关系。"
+  },
+  {
+    "isMulti": false,
+    "title": "在 Vue 3 中，哪些值会被模板自动解包？",
+    "options": [
+      { "key": "A", "text": "ref 和 getter" },
+      { "key": "B", "text": "所有 Proxy 对象" },
+      { "key": "C", "text": "reactive 对象内部属性" },
+      { "key": "D", "text": "A 和 C" }
+    ],
+    "correct": "D",
+    "explanation": "模板中 ref 和 reactive 嵌套属性都会自动解包。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 中 readonly 的作用是？",
+    "options": [
+      { "key": "A", "text": "创建只读代理，修改会警告" },
+      { "key": "B", "text": "完全冻结对象" },
+      { "key": "C", "text": "提升性能" },
+      { "key": "D", "text": "浅层只读" }
+    ],
+    "correct": "A",
+    "explanation": "常用于 props 传递，避免子组件意外修改。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 的自定义指令中，updated 和 updated 的区别是？",
+    "options": [
+      { "key": "A", "text": "没有 updated，只有 updated" },
+      { "key": "B", "text": "updated 是初次，updated 是后续" },
+      { "key": "C", "text": "都是更新时触发，参数不同" },
+      { "key": "D", "text": "Vue 3 废弃了 updated" }
+    ],
+    "correct": "C",
+    "explanation": "Vue 3 统一为 updated，beforeUpdate 另算。"
+  },
+  {
+    "isMulti": false,
+    "title": "在 Vue 3 中，如何正确获取路由参数？",
+    "options": [
+      { "key": "A", "text": "useRoute().params" },
+      { "key": "B", "text": "this.$route.params" },
+      { "key": "C", "text": "route.params" },
+      { "key": "D", "text": "$router.currentRoute.params" }
+    ],
+    "correct": "A",
+    "explanation": "Vue Router 4 使用 Composition API：const route = useRoute()"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 中 watch 的 flush: 'sync' 选项表示？",
+    "options": [
+      { "key": "A", "text": "同步执行 watcher" },
+      { "key": "B", "text": "异步延迟执行" },
+      { "key": "C", "text": "组件更新前执行" },
+      { "key": "D", "text": "组件更新后执行" }
+    ],
+    "correct": "A",
+    "explanation": "flush: 'sync' 会立即同步执行（慎用，可能导致副作用）。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 的全局配置 config.globalProperties 相当于 Vue 2 的？",
+    "options": [
+      { "key": "A", "text": "Vue.prototype" },
+      { "key": "B", "text": "Vue.mixin" },
+      { "key": "C", "text": "Vue.config" },
+      { "key": "D", "text": "Vue.use" }
+    ],
+    "correct": "A",
+    "explanation": "app.config.globalProperties.$http = ... 替代 Vue.prototype。"
+  },
+  {
+    "isMulti": false,
+    "title": "在 <script setup> 中使用宏 defineSlots() 的作用是？",
+    "options": [
+      { "key": "A", "text": "提供 TypeScript 对 slots 的类型推断" },
+      { "key": "B", "text": "定义插槽内容" },
+      { "key": "C", "text": "检查插槽是否存在" },
+      { "key": "D", "text": "无需使用" }
+    ],
+    "correct": "A",
+    "explanation": "defineSlots() 是 TS 辅助宏，提供插槽类型支持。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 中 createApp().mount() 返回值是什么？",
+    "options": [
+      { "key": "A", "text": "应用实例（app）" },
+      { "key": "B", "text": "根组件实例" },
+      { "key": "C", "text": "DOM 元素" },
+      { "key": "D", "text": "undefined" }
+    ],
+    "correct": "B",
+    "explanation": "mount() 返回的是根组件实例，而非 app 实例。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 中哪种写法能正确触发依赖收集？",
+    "options": [
+      { "key": "A", "text": "const state = reactive({ count: 0 })；effect(() => state.count)" },
+      { "key": "B", "text": "const state = reactive({ count: 0 })；effect(() => state['count'])" },
+      { "key": "C", "text": "A 和 B 都行" },
+      { "key": "D", "text": "都不行" }
+    ],
+    "correct": "C",
+    "explanation": "Proxy 的 get 会拦截所有访问方式，包括字符串索引。"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 中 unref 的作用是？",
+    "options": [
+      { "key": "A", "text": "如果是 ref 则返回 .value，否则返回本身" },
+      { "key": "B", "text": "创建 ref" },
+      { "key": "C", "text": "判断是否 ref" },
+      { "key": "D", "text": "浅层解包" }
+    ],
+    "correct": "A",
+    "explanation": "常用于工具函数参数标准化：const val = unref(maybeRef)"
+  },
+  {
+    "isMulti": false,
+    "title": "Vue 3 官方推荐的构建工具是？",
+    "options": [
+      { "key": "A", "text": "Webpack" },
+      { "key": "B", "text": "Vite" },
+      { "key": "C", "text": "Rollup" },
+      { "key": "D", "text": "Parcel" }
+    ],
+    "correct": "B",
+    "explanation": "Vite 是 Vue 团队维护的下一代构建工具。"
+  }
+]
