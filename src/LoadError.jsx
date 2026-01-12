@@ -1,3 +1,5 @@
+import React from 'react'
+
 export default function LoadError({ error, onRetry }) {
   return (
     <div style={{
