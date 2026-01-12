@@ -96,7 +96,7 @@ export default function App() {
   const [filter, setFilter] = useState('all')
 
   useEffect(() => {
-    fetch('/questions.json').then(r => r.json()).then(data => setQuestions(data)).catch(() => setQuestions([]))
+    fetch('/java-questions.json').then(r => r.json()).then(data => setQuestions(data)).catch(() => setQuestions([]))
   }, [])
 
   const handleCheck = (num, isOk) => {
