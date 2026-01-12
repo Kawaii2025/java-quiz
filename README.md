@@ -6,6 +6,7 @@ Run locally:
 
 - Open `index.html` in your browser (double-click) or serve via a local web server.
 
+
 Using Python 3 built-in server (Windows PowerShell):
 
 ```powershell
@@ -16,7 +17,16 @@ python -m http.server 8000
 
 Using VS Code: install "Live Server" extension and click "Go Live".
 
-To initialize git and create the initial commit:
+This project can also be run as a React app (Vite). To run locally with Node.js/npm:
+
+```powershell
+cd c:\Users\kaiwen\dev\java-quiz
+npm install
+npm run dev
+# then open the address shown by Vite, usually http://localhost:5173
+```
+
+To initialize git and create the initial commit (already done in this repo):
 
 ```powershell
 git init
