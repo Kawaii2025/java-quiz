@@ -43,3 +43,9 @@ git push -u origin main
 ```
 
 If you want more questions, see `questions.json` and `java-questions.json`.
+
+**GitHub Pages**
+
+- Live site: https://Kawaii2025.github.io/java-quiz/
+
+[![Build & Deploy](https://github.com/Kawaii2025/java-quiz/actions/workflows/deploy.yml/badge.svg)](https://Kawaii2025.github.io/java-quiz/)
