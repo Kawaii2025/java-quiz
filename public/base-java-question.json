@@ -1,0 +1,242 @@
+[
+  {
+    "isMulti": false,
+    "title": "List、Map、Set 三个接口中，哪个允许存储重复元素且保持插入顺序？",
+    "options": [
+      { "key": "A", "text": "List" },
+      { "key": "B", "text": "Map" },
+      { "key": "C", "text": "Set" },
+      { "key": "D", "text": "都不允许" }
+    ],
+    "correct": "A",
+    "explanation": "List 允许重复元素并保持插入顺序；Map 的键不允许重复；Set 不允许重复元素。"
+  },
+  {
+    "isMulti": false,
+    "title": "以下代码会发生什么？\nshort s1 = 1;\ns1 = s1 + 1;",
+    "options": [
+      { "key": "A", "text": "编译通过，s1 的值为 2" },
+      { "key": "B", "text": "编译错误，需要强制类型转换" },
+      { "key": "C", "text": "运行时错误" },
+      { "key": "D", "text": "s1 的值溢出" }
+    ],
+    "correct": "B",
+    "explanation": "s1 + 1 会自动提升为 int 类型，不能直接赋值给 short，需要强制转换：s1 = (short)(s1 + 1)。"
+  },
+  {
+    "isMulti": false,
+    "title": "以下代码会发生什么？\nshort s1 = 1;\ns1 += 1;",
+    "options": [
+      { "key": "A", "text": "编译错误" },
+      { "key": "B", "text": "编译通过，s1 的值为 2" },
+      { "key": "C", "text": "运行时错误" },
+      { "key": "D", "text": "s1 的值不变" }
+    ],
+    "correct": "B",
+    "explanation": "+= 运算符内部包含隐式类型转换，相当于 s1 = (short)(s1 + 1)，因此可以编译通过。"
+  },
+  {
+    "isMulti": false,
+    "title": "执行以下代码后，y 的值是多少？\nint x = 5;\nint y = x++;",
+    "options": [
+      { "key": "A", "text": "4" },
+      { "key": "B", "text": "5" },
+      { "key": "C", "text": "6" },
+      { "key": "D", "text": "编译错误" }
+    ],
+    "correct": "B",
+    "explanation": "x++ 是后置自增，先返回原值 5 赋给 y，然后 x 自增为 6。所以 y = 5，x = 6。"
+  },
+  {
+    "isMulti": false,
+    "title": "执行以下代码后，y 的值是多少？\nint x = 5;\nint y = ++x;",
+    "options": [
+      { "key": "A", "text": "5" },
+      { "key": "B", "text": "6" },
+      { "key": "C", "text": "7" },
+      { "key": "D", "text": "编译错误" }
+    ],
+    "correct": "B",
+    "explanation": "++x 是前置自增，先将 x 自增为 6，然后返回新值 6 赋给 y。所以 y = 6，x = 6。"
+  },
+  {
+    "isMulti": false,
+    "title": "在 SQL 中，如果需要查询班级排名，且相同分数的学生排名相同并且会跳号（如两个第1名后是第3名），应该使用哪个窗口函数？",
+    "options": [
+      { "key": "A", "text": "ROW_NUMBER()" },
+      { "key": "B", "text": "RANK()" },
+      { "key": "C", "text": "DENSE_RANK()" },
+      { "key": "D", "text": "COUNT()" }
+    ],
+    "correct": "B",
+    "explanation": "RANK() 会在相同值时给予相同排名，并且会跳号。DENSE_RANK() 不跳号，ROW_NUMBER() 强制每行不同排名。"
+  },
+  {
+    "isMulti": false,
+    "title": "执行以下 SQL 后会返回多少条记录？\n表A有5条记录(A,B,C,D,E)，表B有7条记录(A,B,B,D,D,E,F)\nSELECT A.*, B.兴趣 FROM A LEFT JOIN B ON A.名字 = B.名字",
+    "options": [
+      { "key": "A", "text": "5条" },
+      { "key": "B", "text": "7条" },
+      { "key": "C", "text": "12条" },
+      { "key": "D", "text": "1条" }
+    ],
+    "correct": "B",
+    "explanation": "LEFT JOIN 保留左表所有记录。A表5个人，但B和D在右表各有2条匹配，C没有匹配显示NULL。结果：1+2+1+2+1=7条。"
+  },
+  {
+    "isMulti": false,
+    "title": "执行以下 SQL 后会返回多少条记录？\n表A有5条记录(A,B,C,D,E)，表B有7条记录(A,B,B,D,D,E,F)\nSELECT A.*, B.兴趣 FROM A RIGHT JOIN B ON A.名字 = B.名字",
+    "options": [
+      { "key": "A", "text": "5条" },
+      { "key": "B", "text": "7条" },
+      { "key": "C", "text": "10条" },
+      { "key": "D", "text": "12条" }
+    ],
+    "correct": "B",
+    "explanation": "RIGHT JOIN 保留右表所有记录。B表有7条记录，每条都会显示，F在A表中不存在时A表字段显示NULL。结果：7条。"
+  },
+  {
+    "isMulti": false,
+    "title": "在 SQL 中实现行转列（数据透视）时，通常需要配合使用哪两个关键字？",
+    "options": [
+      { "key": "A", "text": "GROUP BY 和 HAVING" },
+      { "key": "B", "text": "CASE WHEN 和 MAX/SUM" },
+      { "key": "C", "text": "WHERE 和 ORDER BY" },
+      { "key": "D", "text": "JOIN 和 UNION" }
+    ],
+    "correct": "B",
+    "explanation": "行转列通常使用 CASE WHEN 判断每行属于哪一列，配合 MAX 或 SUM 聚合函数提取非空值。"
+  },
+  {
+    "isMulti": false,
+    "title": "关于 Map 接口，以下说法正确的是？",
+    "options": [
+      { "key": "A", "text": "Map 的键和值都可以重复" },
+      { "key": "B", "text": "Map 的键可以重复，值不可以重复" },
+      { "key": "C", "text": "Map 的键不可以重复，值可以重复" },
+      { "key": "D", "text": "Map 的键和值都不可以重复" }
+    ],
+    "correct": "C",
+    "explanation": "Map 的键必须唯一，如果插入重复的键会覆盖原值。但值可以重复。"
+  },
+  {
+    "isMulti": false,
+    "title": "以下哪种类型转换会导致编译错误？",
+    "options": [
+      { "key": "A", "text": "int i = 10; long l = i;" },
+      { "key": "B", "text": "long l = 10L; int i = (int)l;" },
+      { "key": "C", "text": "double d = 3.14; int i = d;" },
+      { "key": "D", "text": "byte b = 1; int i = b;" }
+    ],
+    "correct": "C",
+    "explanation": "double 到 int 是大类型到小类型的转换，需要强制类型转换：int i = (int)d。选项C缺少强制转换会编译错误。"
+  },
+  {
+    "isMulti": false,
+    "title": "以下代码的输出结果是什么？\nbyte b1 = 1, b2 = 2;\nbyte b3 = b1 + b2;",
+    "options": [
+      { "key": "A", "text": "编译通过，b3 = 3" },
+      { "key": "B", "text": "编译错误" },
+      { "key": "C", "text": "运行时错误" },
+      { "key": "D", "text": "b3 = 0" }
+    ],
+    "correct": "B",
+    "explanation": "byte、short、char 在运算时会自动提升为 int，b1 + b2 的结果是 int 类型，不能直接赋值给 byte。"
+  },
+  {
+    "isMulti": false,
+    "title": "在 SQL 窗口函数中，OVER 关键字的作用是什么？",
+    "options": [
+      { "key": "A", "text": "定义查询的排序方式" },
+      { "key": "B", "text": "定义窗口函数的计算范围和规则" },
+      { "key": "C", "text": "定义分组条件" },
+      { "key": "D", "text": "定义连接条件" }
+    ],
+    "correct": "B",
+    "explanation": "OVER 关键字用于定义窗口函数的计算范围，包括排序规则(ORDER BY)、分组规则(PARTITION BY)等。"
+  },
+  {
+    "isMulti": false,
+    "title": "以下关于 float 和 long 的说法，正确的是？",
+    "options": [
+      { "key": "A", "text": "long(8字节)比 float(4字节)大，所以 float 不能自动转换为 long" },
+      { "key": "B", "text": "float 的数值范围比 long 大，所以 long 可以自动转换为 float" },
+      { "key": "C", "text": "float 和 long 不能相互转换" },
+      { "key": "D", "text": "float 转 long 不会损失精度" }
+    ],
+    "correct": "B",
+    "explanation": "虽然 float 只有4字节，但采用科学计数法，数值范围(±3.4×10^38)远大于 long(约±9×10^18)，所以 long 可以自动转 float。"
+  },
+  {
+    "isMulti": false,
+    "title": "执行以下代码后，结果是什么？\nint x = 5;\nint y = x++ + ++x;",
+    "options": [
+      { "key": "A", "text": "y = 11, x = 6" },
+      { "key": "B", "text": "y = 12, x = 7" },
+      { "key": "C", "text": "y = 13, x = 7" },
+      { "key": "D", "text": "编译错误" }
+    ],
+    "correct": "B",
+    "explanation": "x++ 先返回5然后x变为6；++x 先自增x变为7然后返回7；所以 y = 5 + 7 = 12，x = 7。"
+  },
+  {
+    "isMulti": true,
+    "title": "关于 Java 集合框架，以下哪些说法正确？（多选）",
+    "options": [
+      { "key": "A", "text": "List 允许元素重复" },
+      { "key": "B", "text": "Set 保证元素的插入顺序" },
+      { "key": "C", "text": "Map 的键不能重复" },
+      { "key": "D", "text": "List 可以通过索引访问元素" }
+    ],
+    "correct": "ACD",
+    "explanation": "List 允许重复且可通过索引访问；Set 不保证顺序(LinkedHashSet除外)；Map 的键必须唯一。"
+  },
+  {
+    "isMulti": true,
+    "title": "关于 Java 类型转换，以下哪些说法正确？（多选）",
+    "options": [
+      { "key": "A", "text": "byte、short、char 在运算时会自动提升为 int" },
+      { "key": "B", "text": "复合赋值运算符(+=)包含隐式类型转换" },
+      { "key": "C", "text": "double 可以自动转换为 int" },
+      { "key": "D", "text": "char 可以自动转换为 int" }
+    ],
+    "correct": "ABD",
+    "explanation": "A、B、D 正确。double 转 int 需要强制转换，因为是大类型到小类型且会丢失小数部分。"
+  },
+  {
+    "isMulti": true,
+    "title": "关于 SQL 窗口函数，以下哪些说法正确？（多选）",
+    "options": [
+      { "key": "A", "text": "RANK() 函数在相同值时会跳号" },
+      { "key": "B", "text": "DENSE_RANK() 函数在相同值时不跳号" },
+      { "key": "C", "text": "ROW_NUMBER() 强制每行有不同的排名" },
+      { "key": "D", "text": "窗口函数必须配合 OVER 关键字使用" }
+    ],
+    "correct": "ABCD",
+    "explanation": "所有选项都正确。RANK()跳号，DENSE_RANK()不跳号，ROW_NUMBER()强制不同，窗口函数必须有OVER。"
+  },
+  {
+    "isMulti": true,
+    "title": "关于 SQL 的 JOIN 操作，以下哪些说法正确？（多选）",
+    "options": [
+      { "key": "A", "text": "LEFT JOIN 保留左表的所有记录" },
+      { "key": "B", "text": "RIGHT JOIN 保留右表的所有记录" },
+      { "key": "C", "text": "INNER JOIN 只返回两表都匹配的记录" },
+      { "key": "D", "text": "LEFT JOIN 和 RIGHT JOIN 的结果一定相同" }
+    ],
+    "correct": "ABC",
+    "explanation": "A、B、C 正确。LEFT JOIN 和 RIGHT JOIN 保留的表不同，结果通常不同。"
+  },
+  {
+    "isMulti": false,
+    "title": "以下哪个 SQL 语句可以实现按分数降序排名（相同分数排名相同且跳号）？",
+    "options": [
+      { "key": "A", "text": "SELECT student_name, score, ROW_NUMBER() OVER (ORDER BY score DESC) AS 排名 FROM student" },
+      { "key": "B", "text": "SELECT student_name, score, RANK() OVER (ORDER BY score DESC) AS 排名 FROM student" },
+      { "key": "C", "text": "SELECT student_name, score, DENSE_RANK() OVER (ORDER BY score DESC) AS 排名 FROM student" },
+      { "key": "D", "text": "SELECT student_name, score, COUNT(*) OVER (ORDER BY score DESC) AS 排名 FROM student" }
+    ],
+    "correct": "B",
+    "explanation": "RANK() 函数在相同分数时给予相同排名且会跳号（如两个第1名后是第3名），符合题目要求。"
+  }
+]

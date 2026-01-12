@@ -99,7 +99,7 @@ export default function App() {
 
   const loadQuestions = () => {
     setLoadError(null)
-    fetch('java-questions.json')
+    fetch('base-java-questions.json')
       .then(r => {
         if (!r.ok) throw new Error(`HTTP ${r.status}: 无法加载题目文件`)
         return r.json()
