@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import LoadError from './LoadError'
 
 function escapeHtml(text) {
   if (text == null) return ''
@@ -94,9 +95,29 @@ export default function App() {
   const [questions, setQuestions] = useState([])
   const [statusMap, setStatusMap] = useState({})
   const [filter, setFilter] = useState('all')
+  const [loadError, setLoadError] = useState(null)
+
+  const loadQuestions = () => {
+    setLoadError(null)
+    fetch('/java-questions.json')
+      .then(r => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}: 无法加载题目文件`)
+        return r.json()
+      })
+      .then(data => {
+        if (!Array.isArray(data) || data.length === 0) {
+          throw new Error('题目数据格式错误或为空')
+        }
+        setQuestions(data)
+      })
+      .catch(err => {
+        setLoadError(err.message)
+        setQuestions([])
+      })
+  }
 
   useEffect(() => {
-    fetch('/java-questions.json').then(r => r.json()).then(data => setQuestions(data)).catch(() => setQuestions([]))
+    loadQuestions()
   }, [])
 
   const handleCheck = (num, isOk) => {
@@ -115,14 +136,23 @@ export default function App() {
     <div className="container">
       <h1 style={{ textAlign: 'center', color: 'var(--primary)' }}>Java 面试题练习</h1>
       <p style={{ textAlign: 'center', color: '#666' }}>点击「显示答案」查看正误与解析</p>
-      <FilterBar active={filter} onChange={(f) => setFilter(f)} />
 
-      {visibleQuestions.length === 0 ? (
-        <div style={{ textAlign: 'center', color: '#666' }}>暂无题目或无符合条件的题目</div>
+      {loadError ? (
+        <LoadError error={loadError} onRetry={loadQuestions} />
       ) : (
-        visibleQuestions.map((q, idx) => (
-          <Question key={idx} q={q} idx={questions.indexOf(q)} status={statusMap[questions.indexOf(q)+1]} onCheck={handleCheck} />
-        ))
+        <>
+          <FilterBar active={filter} onChange={(f) => setFilter(f)} />
+
+          {questions.length === 0 ? (
+            <div style={{ textAlign: 'center', color: '#666', padding: '40px' }}>加载中...</div>
+          ) : visibleQuestions.length === 0 ? (
+            <div style={{ textAlign: 'center', color: '#666' }}>暂无题目或无符合条件的题目</div>
+          ) : (
+            visibleQuestions.map((q, idx) => (
+              <Question key={idx} q={q} idx={questions.indexOf(q)} status={statusMap[questions.indexOf(q)+1]} onCheck={handleCheck} />
+            ))
+          )}
+        </>
       )}
     </div>
   )
