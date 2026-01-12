@@ -1,0 +1,302 @@
+[
+  {
+    "isMulti": false,
+    "title": "Java 中面向对象的三大特性不包括哪个？",
+    "options": [
+      { "key": "A", "text": "封装" },
+      { "key": "B", "text": "继承" },
+      { "key": "C", "text": "多态" },
+      { "key": "D", "text": "垃圾回收" }
+    ],
+    "correct": "D",
+    "explanation": "面向对象三大特性为封装、继承、多态；垃圾回收是 JVM 特性。"
+  },
+  {
+    "isMulti": false,
+    "title": "下面哪个关键字用于实现类的方法重写并调用父类方法？",
+    "options": [
+      { "key": "A", "text": "this" },
+      { "key": "B", "text": "super" },
+      { "key": "C", "text": "final" },
+      { "key": "D", "text": "static" }
+    ],
+    "correct": "B",
+    "explanation": "使用 `super` 可以访问父类成员并在重写方法中调用父类实现。"
+  },
+  {
+    "isMulti": false,
+    "title": "在 Java 中，哪个集合允许键和值都为 null？",
+    "options": [
+      { "key": "A", "text": "HashMap" },
+      { "key": "B", "text": "Hashtable" },
+      { "key": "C", "text": "ConcurrentHashMap" },
+      { "key": "D", "text": "TreeMap" }
+    ],
+    "correct": "A",
+    "explanation": "HashMap 允许一个 null 键和多个 null 值；Hashtable/ConcurrentHashMap 不允许 null 键或值。TreeMap 对键有排序要求，且不建议使用 null 键。"
+  },
+  {
+    "isMulti": false,
+    "title": "下列关于 String、StringBuilder、StringBuffer 的说法中正确的是？",
+    "options": [
+      { "key": "A", "text": "String 是可变的" },
+      { "key": "B", "text": "StringBuilder 线程安全" },
+      { "key": "C", "text": "StringBuffer 线程安全，StringBuilder 性能更高" },
+      { "key": "D", "text": "三者性能相同" }
+    ],
+    "correct": "C",
+    "explanation": "String 不可变；StringBuffer 是线程安全的（同步），StringBuilder 是非线程安全但性能更好。"
+  },
+  {
+    "isMulti": false,
+    "title": "Java 中 volatile 关键字的作用是？",
+    "options": [
+      { "key": "A", "text": "保证原子性" },
+      { "key": "B", "text": "保证可见性并禁止指令重排（部分场景）" },
+      { "key": "C", "text": "替代 synchronized" },
+      { "key": "D", "text": "用于内存分配" }
+    ],
+    "correct": "B",
+    "explanation": "volatile 保证变量对其它线程的可见性，并在一定程度上禁用重排序，但不保证复合操作的原子性。"
+  },
+  {
+    "isMulti": false,
+    "title": "下面哪个不是 Java 的异常类型分类？",
+    "options": [
+      { "key": "A", "text": "受检异常（Checked Exception）" },
+      { "key": "B", "text": "未受检异常（Unchecked Exception）" },
+      { "key": "C", "text": "错误（Error）" },
+      { "key": "D", "text": "致命异常（FatalException）" }
+    ],
+    "correct": "D",
+    "explanation": "Java 中没有专门的 FatalException 分类；主要分为受检异常、运行时异常（未受检）和 Error。"
+  },
+  {
+    "isMulti": false,
+    "title": "关于 Java 泛型，下列说法正确的是？",
+    "options": [
+      { "key": "A", "text": "Java 在运行时保留泛型类型信息（reified）" },
+      { "key": "B", "text": "不能在静态上下文中使用类型参数" },
+      { "key": "C", "text": "可以对基本类型使用泛型参数，如 List<int>" },
+      { "key": "D", "text": "Wildcard（通配符）总是可以替代任意泛型类型" }
+    ],
+    "correct": "B",
+    "explanation": "Java 泛型在编译后类型被擦除（type erasure），运行时没有泛型信息；静态上下文不能使用类的类型参数。基本类型不能作为泛型参数。"
+  },
+  {
+    "isMulti": false,
+    "title": "下面哪个方法用于在 HashMap 中避免并发修改异常（ConcurrentModificationException）的出现？",
+    "options": [
+      { "key": "A", "text": "在迭代时修改 map 内容" },
+      { "key": "B", "text": "使用迭代器的 remove 方法或使用并发集合（如 ConcurrentHashMap）" },
+      { "key": "C", "text": "使用 HashTable" },
+      { "key": "D", "text": "关闭自动扩容" }
+    ],
+    "correct": "B",
+    "explanation": "迭代时修改集合应使用迭代器的 remove 或使用并发安全集合（ConcurrentHashMap）来避免异常。HashTable 是线程安全但不是迭代时自动安全。"
+  },
+  {
+    "isMulti": false,
+    "title": "下列关于 equals() 与 == 的说法正确的是？",
+    "options": [
+      { "key": "A", "text": "== 比较对象内容，equals 比较引用" },
+      { "key": "B", "text": "== 比较引用地址，equals 可被重写比较内容" },
+      { "key": "C", "text": "两者总是等价" },
+      { "key": "D", "text": "equals 不能被重写" }
+    ],
+    "correct": "B",
+    "explanation": "== 比较引用（地址），equals 默认实现与 == 相同，但通常被重写用于比较对象内容（如 String）。"
+  },
+  {
+    "isMulti": false,
+    "title": "下列关于 Java 内存模型（JMM）和 GC 的说法中正确的是？",
+    "options": [
+      { "key": "A", "text": "Full GC 仅回收 Young 区" },
+      { "key": "B", "text": "GC 会停止所有 Java 线程（Stop-the-world）" },
+      { "key": "C", "text": "新生代对象更容易被回收" },
+      { "key": "D", "text": "JVM 不需要连续的内存" }
+    ],
+    "correct": "C",
+    "explanation": "新生代对象寿命短，较容易被回收；GC 在某些阶段会导致 stop-the-world，但不是所有 GC 情况都完全阻塞；Full GC 回收整个堆。"
+  },
+  {
+    "isMulti": false,
+    "title": "Java 中 synchronized 与 ReentrantLock 的主要区别不包括？",
+    "options": [
+      { "key": "A", "text": "synchronized 是 JVM 层面实现，ReentrantLock 是 JDK 实现" },
+      { "key": "B", "text": "ReentrantLock 支持公平锁、可中断等待与尝试获取锁" },
+      { "key": "C", "text": "synchronized 无法保证可见性" },
+      { "key": "D", "text": "二者在使用方式和功能上有差异" }
+    ],
+    "correct": "C",
+    "explanation": "synchronized 同样保证可见性（通过内存屏障）；C 项表述错误。"
+  },
+  {
+    "isMulti": false,
+    "title": "下面哪个接口用于在 Java 中执行异步回调并返回结果（从 JDK 1.5 起）？",
+    "options": [
+      { "key": "A", "text": "Runnable" },
+      { "key": "B", "text": "Callable" },
+      { "key": "C", "text": "Comparable" },
+      { "key": "D", "text": "Observer" }
+    ],
+    "correct": "B",
+    "explanation": "Callable 可返回结果并抛出异常，通常与 ExecutorService 提交任务并得到 Future。"
+  },
+  {
+    "isMulti": false,
+    "title": "Lambda 表达式引入后可以带来的好处不包括？",
+    "options": [
+      { "key": "A", "text": "更简洁的语法" },
+      { "key": "B", "text": "促使更函数式编程风格" },
+      { "key": "C", "text": "自动并行化所有流操作" },
+      { "key": "D", "text": "更容易表达回调" }
+    ],
+    "correct": "C",
+    "explanation": "并行化需显式调用 parallelStream() 或并行流，Lambda 本身不会自动并行化。"
+  },
+  {
+    "isMulti": true,
+    "title": "关于 Java Stream API，下列哪些说法正确？（多选）",
+    "options": [
+      { "key": "A", "text": "stream 操作是惰性的，直到遇到终端操作才执行" },
+      { "key": "B", "text": "中间操作会返回新的集合" },
+      { "key": "C", "text": "parallelStream 可以轻易替代线程池" },
+      { "key": "D", "text": "无状态中间操作可以并行执行" }
+    ],
+    "correct": "AD",
+    "explanation": "stream 操作确实是惰性的；中间操作不立即创建集合，仅在终端操作执行；parallelStream 并非总是替代线程池；无状态操作更适合并行化。"
+  },
+  {
+    "isMulti": false,
+    "title": "下列关于类加载器（ClassLoader）的说法正确的是？",
+    "options": [
+      { "key": "A", "text": "Bootstrap、Extension、Application 是三类常见类加载器" },
+      { "key": "B", "text": "双亲委派模型会使子加载器优先加载类" },
+      { "key": "C", "text": "每个类只有一个类加载器" },
+      { "key": "D", "text": "类加载器与线程无关" }
+    ],
+    "correct": "A",
+    "explanation": "三者是经典分类；双亲委派模型是父优先；一个类在 JVM 中确实由一个类加载器定义；类加载器通常与线程上下文有关，但题中 A 为正确选项。"
+  },
+  {
+    "isMulti": false,
+    "title": "如何保证一个类在多线程下只被初始化一次？",
+    "options": [
+      { "key": "A", "text": "使用静态初始化块或枚举单例" },
+      { "key": "B", "text": "每次都 new 一个实例" },
+      { "key": "C", "text": "使用 ThreadLocal" },
+      { "key": "D", "text": "用 synchronized 包装构造函数" }
+    ],
+    "correct": "A",
+    "explanation": "静态初始化保证类加载时初始化一次；枚举单例是线程安全且推荐的单例实现方式。"
+  },
+  {
+    "isMulti": false,
+    "title": "下列哪个不是常见的设计模式？",
+    "options": [
+      { "key": "A", "text": "单例模式（Singleton）" },
+      { "key": "B", "text": "工厂模式（Factory）" },
+      { "key": "C", "text": "扫描模式（Scanner Pattern）" },
+      { "key": "D", "text": "观察者模式（Observer）" }
+    ],
+    "correct": "C",
+    "explanation": "扫描模式不是常见的 GoF 模式；其余为经典设计模式。"
+  },
+  {
+    "isMulti": false,
+    "title": "在 Java 中使用 final 修饰的成员变量表示什么？",
+    "options": [
+      { "key": "A", "text": "该变量引用不可改变（对于引用类型）" },
+      { "key": "B", "text": "变量不能为 null" },
+      { "key": "C", "text": "对基本类型无效" },
+      { "key": "D", "text": "编译器会自动初始化" }
+    ],
+    "correct": "A",
+    "explanation": "final 引用不能指向另一个对象，但所引用对象的内部状态仍可变（除非本身不可变）。"
+  },
+  {
+    "isMulti": false,
+    "title": "下面哪个工具常用于分析 Java 堆内存（heap）和查找内存泄漏？",
+    "options": [
+      { "key": "A", "text": "jmap / jhat / VisualVM" },
+      { "key": "B", "text": "javac" },
+      { "key": "C", "text": "javadoc" },
+      { "key": "D", "text": "jar" }
+    ],
+    "correct": "A",
+    "explanation": "jmap、VisualVM 等工具可以生成 heap dump 并分析对象占用以查找泄漏。"
+  },
+  {
+    "isMulti": false,
+    "title": "下列关于 Optional 的使用建议中正确的是？",
+    "options": [
+      { "key": "A", "text": "在所有字段上都使用 Optional 作为成员变量" },
+      { "key": "B", "text": "推荐在方法返回值使用 Optional 以表达可能为空" },
+      { "key": "C", "text": "Optional 可以序列化为 JSON" },
+      { "key": "D", "text": "Optional 可替代所有 null 检查" }
+    ],
+    "correct": "B",
+    "explanation": "Optional 更适合方法返回值而不是成员字段；序列化需特殊处理；不能完全替代所有 null 场景。"
+  },
+  {
+    "isMulti": false,
+    "title": "Java 中 transient 关键字的作用是？",
+    "options": [
+      { "key": "A", "text": "标记字段不会被序列化" },
+      { "key": "B", "text": "标记字段为线程安全" },
+      { "key": "C", "text": "标记字段为常量" },
+      { "key": "D", "text": "标记字段需要延迟加载" }
+    ],
+    "correct": "A",
+    "explanation": "transient 表示该字段在序列化时会被忽略。"
+  },
+  {
+    "isMulti": false,
+    "title": "在并发场景下，下面哪种集合是线程安全且适合高并发读写的？",
+    "options": [
+      { "key": "A", "text": "ArrayList" },
+      { "key": "B", "text": "Vector" },
+      { "key": "C", "text": "CopyOnWriteArrayList" },
+      { "key": "D", "text": "ConcurrentHashMap" }
+    ],
+    "correct": "D",
+    "explanation": "ConcurrentHashMap 是为高并发设计的哈希映射；CopyOnWriteArrayList 适用于读多写少场景。"
+  },
+  {
+    "isMulti": false,
+    "title": "下列关于类的序列化（Serializable）的注意事项哪项不正确？",
+    "options": [
+      { "key": "A", "text": "若父类可序列化，子类无需显式实现" },
+      { "key": "B", "text": "serialVersionUID 用于版本兼容" },
+      { "key": "C", "text": "所有对象字段都能自动序列化" },
+      { "key": "D", "text": "transient 字段不会被序列化" }
+    ],
+    "correct": "C",
+    "explanation": "并非所有字段都能自动序列化（如包含不可序列化的对象需自定义序列化或标记为 transient）。"
+  },
+  {
+    "isMulti": false,
+    "title": "在 Java 中，如何优雅地实现线程安全的延迟初始化（双重检查锁定）？",
+    "options": [
+      { "key": "A", "text": "使用静态初始化块或枚举单例" },
+      { "key": "B", "text": "使用双重检查锁定并将实例声明为 volatile" },
+      { "key": "C", "text": "使用 ThreadLocal" },
+      { "key": "D", "text": "不能实现线程安全的延迟初始化" }
+    ],
+    "correct": "B",
+    "explanation": "双重检查锁定模式需要 volatile 保证引用初始化对其它线程可见并避免重排序问题。"
+  },
+  {
+    "isMulti": false,
+    "title": "下列哪个注解用于在 Spring 中声明组件类以便自动扫描？",
+    "options": [
+      { "key": "A", "text": "@Component" },
+      { "key": "B", "text": "@RequestMapping" },
+      { "key": "C", "text": "@Transactional" },
+      { "key": "D", "text": "@Entity" }
+    ],
+    "correct": "A",
+    "explanation": "@Component、@Service、@Repository 等注解用于将类注册为 Spring Bean 以供自动扫描。"
+  }
+]
